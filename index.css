@@ -4,22 +4,23 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    min-height: 100svh;
+    min-height: -webkit-fill-available;
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     font-family: system-ui, -apple-system, sans-serif;
 }
 
 @font-face {
     font-family: "KhmerMoulPali";
-    src: url("./StaticResources/Fonts/KhMuolPali.ttf")
+    src: url("/StaticResources/Fonts/KhMuolPali.ttf")
 }
 @font-face {
     font-family: "KhmerSNPreytakoy";
-    src: url("./StaticResources/Fonts/KhSNPreytakoy.ttf");
+    src: url("/StaticResources/Fonts/KhSNPreytakoy.ttf");
 }
 @font-face {
     font-family: "KhmerOSmuollight";
-    src: url("./StaticResources/Fonts/KhmerOSmuollight.ttf");
+    src: url("/StaticResources/Fonts/KhmerOSmuollight.ttf");
 }
 
 .right-side .couple p{
@@ -53,8 +54,6 @@ body{
 .container{
     width: 100%;
     justify-items: center;
-    /* display: grid;
-    grid-template-columns: 1fr 520px; */
 }
 .left-side{
     width: 100%;
@@ -67,6 +66,7 @@ body{
     position: relative;
     justify-items: center;
     overflow: hidden;
+    overflow: clip;
     border-radius: 20px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3),
                 0 10px 30px rgba(0, 0, 0, 0.15);
@@ -89,7 +89,7 @@ body{
     content: "";
     position: absolute;
     inset: 0;
-    background-image: url("./StaticResources/Backgrounds/background.png");
+    background-image: url("/StaticResources/Backgrounds/background.png");
     background-size: cover;
     background-position: center;
     filter: blur(12px);
@@ -126,42 +126,68 @@ body{
 .filigree-top, .filigree-bottom{
     width: 120px;
     margin-top: -25px;
-    filter: brightness(0) saturate(100%)
-            invert(46%)
-            sepia(75%)
-            saturate(480%)
-            hue-rotate(8deg)
-            brightness(95%)
-            contrast(90%)
-            drop-shadow(0 2px 4px rgba(176, 128, 44, 0.3));
     animation: pulse 3s ease-in-out infinite;
 }
 
 @keyframes pulse {
-    0%, 100% {
-        opacity: 1;
-        transform: scale(1);
-    }
-    50% {
-        opacity: 0.8;
-        transform: scale(1.05);
-    }
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.05); }
 }
 
 .right-side .coner-frame img{
     position: absolute;
     width: 120px;
     display: block;
-    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
-    animation: frameGlow 4s ease-in-out infinite;
 }
 
-@keyframes frameGlow {
+.right-side .coner-frame .top-right{
+    animation: frameGlowTopRight 4s ease-in-out infinite;
+}
+
+.right-side .coner-frame .top-left{
+    animation: frameGlowTopLeft 4s ease-in-out infinite;
+}
+
+.right-side .coner-frame .bottom-right{
+    animation: frameGlowBottomRight 4s ease-in-out infinite;
+}
+.right-side .coner-frame .bottom-left{
+    animation: frameGlowBottomLeft 4s ease-in-out infinite;
+}
+
+@keyframes frameGlowTopRight {
     0%, 100% {
-        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+        transform: rotate(3.142rad) scale(1);
     }
     50% {
-        filter: drop-shadow(0 4px 12px rgba(176, 128, 44, 0.4));
+        transform: rotate(3.142rad) scale(1.04);
+    }
+}
+
+@keyframes frameGlowTopLeft {
+    0%, 100% {
+        transform: rotate(90deg) scale(1);
+    }
+    50% {
+        transform: rotate(90deg) scale(1.04);
+    }
+}
+
+@keyframes frameGlowBottomRight {
+    0%, 100% {
+        transform: rotate(-0.25turn) scale(1);
+    }
+    50% {
+        transform: rotate(-0.25turn) scale(1.04);
+    }
+}
+
+@keyframes frameGlowBottomLeft {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.04);
     }
 }
 .coner-frame{
@@ -169,6 +195,7 @@ body{
     z-index: 3;
     inset: 0;
     pointer-events: none;
+    will-change: transform, opacity;
 }
 
 .right-side .top-right{
@@ -326,10 +353,8 @@ body{
     z-index: -1;
 }
 
-/* Phone: place media overrides after base styles so they win in cascade */
 @media (max-width: 600px) {
     .right-side .introduction p, .venue{
-        /* Smaller but readable on phones; overrides base clamp */
         font-size: 12px;
     }
     .right-side .coner-frame img{
