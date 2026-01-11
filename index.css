@@ -1,0 +1,354 @@
+body{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+@font-face {
+    font-family: "KhmerMoulPali";
+    src: url("./StaticResources/Fonts/KhMuolPali.ttf")
+}
+@font-face {
+    font-family: "KhmerSNPreytakoy";
+    src: url("./StaticResources/Fonts/KhSNPreytakoy.ttf");
+}
+@font-face {
+    font-family: "KhmerOSmuollight";
+    src: url("./StaticResources/Fonts/KhmerOSmuollight.ttf");
+}
+
+.right-side .couple p{
+    font-family: KhmerSNPreytakoy;
+    font-size: clamp(22px, 6vw, 32px);
+    color: rgb(179, 6, 43);
+    margin: 2px 0px;
+    position: relative;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.right-side .couple p:hover {
+    transform: scale(1.05);
+}
+
+.right-side .couple .male{
+    text-align: start;
+}
+
+.right-side .couple .female{
+    text-align: end;
+    margin-top: -16px;
+}
+
+.right-side .couple{
+    margin-top: 15px;
+    width: 280px;
+}
+
+.container{
+    width: 100%;
+    justify-items: center;
+    /* display: grid;
+    grid-template-columns: 1fr 520px; */
+}
+.left-side{
+    width: 100%;
+}
+.right-side{
+    max-width: 520px;
+    width: 95vw;
+    height: auto;
+    min-height: 720px;
+    position: relative;
+    justify-items: center;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3),
+                0 10px 30px rgba(0, 0, 0, 0.15);
+    animation: fadeIn 1s ease-in-out;
+    padding-bottom: 20px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.right-side::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("./StaticResources/Backgrounds/background.png");
+    background-size: cover;
+    background-position: center;
+    filter: blur(12px);
+    transform: scale(1.1);
+    z-index: 0;
+}
+
+.right-side > * {
+    position: relative;
+    z-index: 1;
+}
+
+.right-side .introduction{
+    margin-top: 25px;
+    width: 80%;
+}
+
+.right-side .introduction p{
+    padding-top: 15px;
+    font-family: KhmerMoulPali;
+    font-size: 14px;
+    line-height: 28px;
+    color: rgb(176, 128, 44);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.right-side .introduction, .venue-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.filigree-top, .filigree-bottom{
+    width: 120px;
+    margin-top: -25px;
+    filter: brightness(0) saturate(100%)
+            invert(46%)
+            sepia(75%)
+            saturate(480%)
+            hue-rotate(8deg)
+            brightness(95%)
+            contrast(90%)
+            drop-shadow(0 2px 4px rgba(176, 128, 44, 0.3));
+    animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(1.05);
+    }
+}
+
+.right-side .coner-frame img{
+    position: absolute;
+    width: 120px;
+    display: block;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+    animation: frameGlow 4s ease-in-out infinite;
+}
+
+@keyframes frameGlow {
+    0%, 100% {
+        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+    }
+    50% {
+        filter: drop-shadow(0 4px 12px rgba(176, 128, 44, 0.4));
+    }
+}
+.coner-frame{
+    position: absolute;
+    z-index: 3;
+    inset: 0;
+    pointer-events: none;
+}
+
+.right-side .top-right{
+    top: 0;
+    right: 0;
+    transform: rotate(3.142rad);
+     
+}
+
+.right-side .top-left{
+    top:0;
+    left: 0;
+    transform: rotate(90deg);
+}
+
+.right-side .bottom-right{
+    bottom: 0;
+    right: 0;
+    transform: rotate(-0.25turn);
+}
+
+.right-side .bottom-left{
+    left: 0;
+    bottom:0;
+}
+
+.coupleImg{
+    width: clamp(140px, 40vw, 180px);
+    margin: auto;
+    display: block;
+    margin-top: 12px;
+    border-radius: 50%;
+    border: 4px solid rgba(176, 128, 44, 0.3);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.coupleImg:hover {
+    transform: scale(1.05) rotate(2deg);
+}
+
+.couple .male span img, .couple .female span img{
+    width: 40px;
+}
+
+.event-details{
+    width: 65%;
+    margin-top: 25px;
+    font-family: KhmerOSmuollight;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 120px 80px 120px;
+    color: rgb(179, 6, 43);
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    background: rgba(255, 255, 255, 0.3);
+    padding: 15px 10px;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.day, .hour, .date{
+    padding-top: 3px;
+    padding-bottom: 3px;
+    position: relative;
+}
+
+.border-top, .border-bottom{
+    position: absolute;
+    width: 65%;
+    height: 2px;
+    background-color: rgb(179, 6, 43);
+    left: 50%;
+    transform: translateX(-50%);
+}
+.border-left, .border-right {
+    position: absolute;
+    width: 2px;
+    height: 28%;
+    background-color: rgb(179, 6, 43);
+    top: 50%;
+    transform: translateY(-50%);
+}
+.border-right{
+    right: 0;
+}
+
+.border-left{
+    left: 0;
+}
+
+.border-top{
+    right: 0;
+    top: 0;
+}
+
+.border-bottom{
+    right: 0;
+    bottom: 0;
+}
+
+
+.date{
+    display: grid;
+    grid-template-rows: 20px 1fr 20px;
+}
+
+.month{
+    padding: 0px;
+    margin: 0px;
+}
+
+.days{
+    font-size: 32px;
+    margin-bottom: -12px;
+    margin-top: -4px;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.venue-section{
+    width: 80%;
+    margin:auto;
+}
+.venue-card{
+    margin-top: 20px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px 15px;
+    border-radius: 8px;
+    backdrop-filter: blur(3px);
+}
+
+.venue{
+    text-align: center;
+    font-size: 14px;
+    font-family: KhmerMoulPali;
+    color: rgb(176, 128, 44);
+    line-height: 28px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    margin: 0;
+}
+
+.venue-card .filigree-bottom{
+    padding-top: 18px;
+}
+
+.backgroun-couple{
+    position: absolute;
+    width: 220px;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+}
+
+/* Phone: place media overrides after base styles so they win in cascade */
+@media (max-width: 600px) {
+    .right-side .introduction p, .venue{
+        /* Smaller but readable on phones; overrides base clamp */
+        font-size: 12px;
+    }
+    .right-side .coner-frame img{
+        width: 80px;
+    }
+    .filigree-top, .filigree-bottom{
+        width: 100px;
+    }
+    .event-details{
+        width: 75%;
+        grid-template-columns: 100px 70px 100px;
+        font-size: 12px;
+        padding: 12px 8px;
+    }
+    .days{
+         font-size: 28px;
+    }
+
+    .right-side .couple{
+        width: 240px;
+    }
+}
