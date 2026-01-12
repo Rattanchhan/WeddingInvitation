@@ -59,5 +59,27 @@
             </div>
         </div>
     </main>
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        // Handle <p> hover
+        const coupleTexts = document.querySelectorAll('.right-side .couple p');
+        coupleTexts.forEach(el => {
+            el.addEventListener('mouseenter', () => el.classList.add('hover-effect'));
+            el.addEventListener('mouseleave', () => el.classList.remove('hover-effect'));
+            el.addEventListener('touchstart', () => el.classList.add('hover-effect'));
+            el.addEventListener('touchend', () => el.classList.remove('hover-effect'));
+        });
+
+        // Handle image hover
+        const coupleImages = document.querySelectorAll('.coupleImg');
+        coupleImages.forEach(img => {
+            img.addEventListener('mouseenter', () => img.classList.add('hover-effect-img'));
+            img.addEventListener('mouseleave', () => img.classList.remove('hover-effect-img'));
+            img.addEventListener('touchstart', () => img.classList.add('hover-effect-img'));
+            img.addEventListener('touchend', () => img.classList.remove('hover-effect-img'));
+        });
+    });
+</script>
+
 </body>
 </html>

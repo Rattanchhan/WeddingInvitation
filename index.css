@@ -5,7 +5,6 @@ body{
     justify-content: center;
     align-items: center;
     min-height: 100svh;
-    min-height: -webkit-fill-available;
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     font-family: system-ui, -apple-system, sans-serif;
 }
@@ -23,6 +22,16 @@ body{
     src: url("/StaticResources/Fonts/KhmerOSmuollight.ttf");
 }
 
+.hover-effect {
+    transform: scale(1.05) !important;
+    transition: transform 0.3s ease-in-out;
+}
+.hover-effect-img {
+    transform: scale(1.05) rotate(2deg) !important;
+    transition: transform 0.3s ease-in-out;
+}
+
+
 .right-side .couple p{
     font-family: KhmerSNPreytakoy;
     font-size: clamp(22px, 6vw, 32px);
@@ -30,7 +39,10 @@ body{
     margin: 2px 0px;
     position: relative;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease-in-out;
+    transform: translate3d(0,0,0);
+    backface-visibility: hidden;
+    
 }
 
 .right-side .couple p:hover {
@@ -53,25 +65,31 @@ body{
 
 .container{
     width: 100%;
-    justify-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    display: flex;
 }
-.left-side{
-    width: 100%;
-}
+
 .right-side{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     max-width: 520px;
-    width: 95vw;
     height: auto;
+    margin: 10px 10px;
     min-height: 720px;
     position: relative;
-    justify-items: center;
     overflow: hidden;
-    overflow: clip;
     border-radius: 20px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3),
                 0 10px 30px rgba(0, 0, 0, 0.15);
     animation: fadeIn 1s ease-in-out;
     padding-bottom: 20px;
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 
 @keyframes fadeIn {
@@ -93,6 +111,7 @@ body{
     background-size: cover;
     background-position: center;
     filter: blur(12px);
+    -webkit-filter: blur(12px);
     transform: scale(1.1);
     z-index: 0;
 }
@@ -368,6 +387,9 @@ body{
         grid-template-columns: 100px 70px 100px;
         font-size: 12px;
         padding: 12px 8px;
+    }
+    .introduction {
+        width: 30%;
     }
     .days{
          font-size: 28px;
